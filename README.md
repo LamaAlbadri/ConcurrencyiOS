@@ -46,30 +46,30 @@ let queue4 = DispatchQueue(label: "com.queue2", target: queue1)
 
 ```
 
-* Label: use for uniquely identify the dispatch  queue it's useful for debugging and identify the purpose of the queue .
-* Qos: Helps the system to piroeties tasks we have enum of types
-* attribuites: the type of the queue it's by default serial. it can be counncrent or initallyInactive or both.
-* autorelease frequency: auto relase resources will be used like inherent, workItwm and Never.
-* target: the target queue on which the new queue should br made dependent. Task submitted to new queue will be excuted on the target queue. If nil global counncrent queu efor the specified Qos will be used.
+* Label: used for uniquely identify the dispatch  queue it's useful for debugging and identifying the purpose of the queue .
+* Qos: Helps the system to pirortize tasks we have enum of types
+* attribuites: the type of the queue it's by default serial. it can be counncrent or initiallyinactive or both.
+* autorelease frequency: auto-release resources will be used like inherent, workItwm and Never.
+* target: the target queue on which the new queue should br made dependent. Task submitted to a new queue will be executed on the target queue. If nil global counncrent queue for the specified Qos will be used.
 
 
 ### QOS:
 
-1- UserInactice (Involoced in updating UI? yes use it): animation & event handling.
-2- User-initalied (Data required for better ux? yes): Table view & next page.
-3- Default (Qos falls between user-initalied & utility)
-4- Utility (is user aware of the program> is it appear to user? like downloading and progress bar) .
-5- Background (Is user aware of the task? No use it): things that is not visable to the user.
-6- Unspaecified (when some information is missig): Abense of Qos info.
+1- UserInactice (Involved in updating UI? Yes use it): animation & event handling.
+2- User-initialised (Data required for better UX? yes): Table view & next page.
+3- Default (Qos falls between user-initialised & utility)
+4- Utility (is user aware of the program> Does it appear to the user? like downloading and progress bar).
+5- Background (Is the user aware of the task? No use it): things that are not visible to the user.
+6- Unspecified (when some information is missing): Abense of Qos info.
 
 
 ### (2) DisaptchGroup
 * A group of tasks that you monitor as a single unit.
 
-### func with disptach group
+### func with dispatch group
 * .enter(): will call to enter disoatchGroup
-* .leave(): will call after excution is finish/ recive the response.
-* .wait(): If you want to stop the excution happend in the current thread(shouldn't be used in the main thread).
+* .leave(): will call after execution is finished/receive the response.
+* .wait(): If you want to stop the execution that happened in the current thread(shouldn't be used in the main thread).
 * .notify(): Notify If all tasks completed will be called.
 [we need to balance the numbers of the .enter() with .leave() or we will end with crash]
 
@@ -81,33 +81,59 @@ let queue4 = DispatchQueue(label: "com.queue2", target: queue1)
 * Provide flexibility to cancel the task.
 
 ### wotkItem funcs
-* .cancel: if cancel = ture before the excution task will not excute. If canceled during excution cancel will 'return true' but excution won't abort.
+* .cancel: if cancel = ture before the execution task will not execute. If canceled during execution cancel will 'return true' but execution won't abort.
 * .wait() & .notify(): works like dispatchGroup.
 
 ### Flags(DispatchWorlItemFlags)
-* Set a behvior of work item.
-* It's QOS whetherto create a barrier or spawn a new detached thread.
-* types of flags: assignCurrentContext, detached, enforeceQos, inheritQos, .noQos and barrier.
+* Set a behavior of the work item.
+* It's QOS whether to create a barrier or spawn a new detached thread.
+* types of flags: assignCurrentContext, detached, enforeceQos, inheritQos, .noQos, and barrier.
 [barrier is the most used we use it with data race ]
 
-* Data races : Two or more threads in a single process access the same memory location concurrently, and at least one of the accesses is for writing.
+* Data races: Two or more threads in a single process access the same memory location concurrently, and at least one of the accesses is for writing.
 
 
 ### (4) DisaptchSempahre
-* Deal with data consitncy.
-* Data consitncy? Multiple account holder for same account in the same try to access the bank.
-* All trhead want to acess critical section will be added to queue: one thread will be allowed at the time.
+* Deal with data consistency.
+* Data consistency? Multiple account holders for the same account in the same try to access the bank.
+* All threads want to access the critical section will be added to the queue: one thread will be allowed at the time.
 * Set a counter.
 
 ### DisaptchSempahre funcs
 * .wait(): reduce value counter by -1.
 * .single(): increase the value counter by +1.
 
-### Cirtical section 
-* Part of the program in which tries to access shared resources.
-* when critical section is accessed by multiple thread at the same time (strong change of data incontincsincy) and soultion is DisaptchSempahre
+### Critical section 
+* Part of the program which tries to access shared resources.
+* when a critical section is accessed by multiple threads at the same time (strong change of data incontinency) and solution is DisaptchSempahre
 
 ### (5) Disaptch Source
-* The one used for listent to the event by the system ,
-* Rearly used thing.
-* Can be used to run timer on the background thread.
+* The one used for listening to the event by the system,
+* Rarely used thing.
+* Can be used to run a timer on the background thread.
+* 
+
+
+## Operation & Operation Queue
+
+ ### GCD VS OperationQueue
+ * operation internally used GCD it's init from GCD.
+ * GCD: used when the task is not complex we are not interested in the state of execution.
+   
+ ### Operations
+ * Operation: It should be used when we are more interested in the state of execution.
+ * When we want more functionality to control the task.
+ * Enspaulate a block of functionality that can be re-use.
+
+ ### Operations Types/ Abstraction classes
+ * Block operation: execute a block [it's currently run in global queue].
+ * NSInvaction Operation: excute invocation [in objective-c only].
+ * Custom Operation
+   
+ ### Operations states
+ * isReady: when the operation is ready to execute.
+ * isExcuting: When the operation starts executing.
+ * isCancelled: When execution is canceled.
+ * isFinished: when execution is finish.
+
+
