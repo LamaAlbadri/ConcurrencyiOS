@@ -14,6 +14,7 @@
 		CECC80432B4C184D00369E5F /* DoCatchTryThroughBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80422B4C184D00369E5F /* DoCatchTryThroughBootcamp.swift */; };
 		CECC80452B4C263400369E5F /* DownloadImageAsync.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80442B4C263400369E5F /* DownloadImageAsync.swift */; };
 		CECC80472B4C320B00369E5F /* AsyncAwaitBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80462B4C320B00369E5F /* AsyncAwaitBootcamp.swift */; };
+		CECC80692B4C6D2C00369E5F /* TaskBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECC80682B4C6D2C00369E5F /* TaskBootcamp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		CECC80422B4C184D00369E5F /* DoCatchTryThroughBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoCatchTryThroughBootcamp.swift; sourceTree = "<group>"; };
 		CECC80442B4C263400369E5F /* DownloadImageAsync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImageAsync.swift; sourceTree = "<group>"; };
 		CECC80462B4C320B00369E5F /* AsyncAwaitBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitBootcamp.swift; sourceTree = "<group>"; };
+		CECC80682B4C6D2C00369E5F /* TaskBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskBootcamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				CECC80422B4C184D00369E5F /* DoCatchTryThroughBootcamp.swift */,
 				CECC80442B4C263400369E5F /* DownloadImageAsync.swift */,
 				CECC80462B4C320B00369E5F /* AsyncAwaitBootcamp.swift */,
+				CECC80682B4C6D2C00369E5F /* TaskBootcamp.swift */,
 				CECC80382B4C182B00369E5F /* Assets.xcassets */,
 				CECC803A2B4C182B00369E5F /* Preview Content */,
 			);
@@ -149,6 +152,7 @@
 				CECC80452B4C263400369E5F /* DownloadImageAsync.swift in Sources */,
 				CECC80432B4C184D00369E5F /* DoCatchTryThroughBootcamp.swift in Sources */,
 				CECC80372B4C182A00369E5F /* ContentView.swift in Sources */,
+				CECC80692B4C6D2C00369E5F /* TaskBootcamp.swift in Sources */,
 				CECC80472B4C320B00369E5F /* AsyncAwaitBootcamp.swift in Sources */,
 				CECC80352B4C182A00369E5F /* SwiftCounncrencyBootcampApp.swift in Sources */,
 			);
